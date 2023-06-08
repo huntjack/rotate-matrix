@@ -8,17 +8,7 @@ public class Main {
                 { 21, 22, 23, 24, 25 }
         };
         matrix = rotateMatrix(matrix);
-        for(int i = 0; i < matrix.length; i++) {
-            int j;
-            StringBuilder stringBuilder = new StringBuilder("Row ");
-            stringBuilder.append(i);
-            stringBuilder.append(" : ");
-            System.out.print(stringBuilder);
-            for(j = 0; j < matrix.length; j++) {
-                System.out.print(matrix[i][j] + "  ");
-            }
-            System.out.println();
-        }
+        printMatrix(matrix);
     }
     public static int[][] rotateMatrix(int[][] matrix) {
         int lastElement = matrix.length - 1;
@@ -45,5 +35,18 @@ public class Main {
         int temp = matrix[firstRow][firstColumn];
         matrix[firstRow][firstColumn] = matrix[secondRow][secondColumn];
         matrix[secondRow][secondColumn] = temp;
+    }
+    private static void printMatrix(int[][] matrix) {
+        for(int i = 0; i < matrix.length; i++) {
+            int j;
+            StringBuilder stringBuilder = new StringBuilder("Row ");
+            stringBuilder.append(i);
+            stringBuilder.append(" : ");
+            System.out.print(stringBuilder);
+            for(j = 0; j < matrix.length; j++) {
+                System.out.print(matrix[i][j] + "  ");
+            }
+            System.out.println();
+        }
     }
 }
