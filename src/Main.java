@@ -17,9 +17,9 @@ public class Main {
     private static int[][] rotateLayer(int[][] matrix, int top, int bottom, int left, int right) {
         int counter = 0;
         for(int i = left; i < right; i++) {
-            swap(matrix, bottom - counter, left, top, left + counter);
-            swap(matrix, bottom, right - counter, bottom - counter, left);
-            swap(matrix, top + counter, right, bottom, right - counter);
+            matrix = swap(matrix, bottom - counter, left, top, left + counter);
+            matrix = swap(matrix, bottom, right - counter, bottom - counter, left);
+            matrix = swap(matrix, top + counter, right, bottom, right - counter);
             counter++;
         }
         top++;
@@ -31,10 +31,11 @@ public class Main {
         }
         return matrix;
     }
-    private static void swap(int[][] matrix, int firstRow, int firstColumn, int secondRow, int secondColumn) {
+    private static int[][] swap(int[][] matrix, int firstRow, int firstColumn, int secondRow, int secondColumn) {
         int temp = matrix[firstRow][firstColumn];
         matrix[firstRow][firstColumn] = matrix[secondRow][secondColumn];
         matrix[secondRow][secondColumn] = temp;
+        return matrix;
     }
     private static void printMatrix(int[][] matrix) {
         for(int i = 0; i < matrix.length; i++) {
